@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePulse Hub | Gaming News, Reviews & Deals</title>
+    <meta name="description" content="Get the latest gaming news, honest reviews, and the best deals on games and hardware. Your daily pulse on PC, PlayStation, Xbox, and Nintendo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0A0A0F;
+            --bg-secondary: #141419;
+            --bg-tertiary: #1E1E24;
+            --bg-elevated: #252530;
+            --accent-primary: #8B5CF6;
+            --accent-secondary: #06B6D4;
+            --accent-success: #10B981;
+            --accent-warning: #F59E0B;
+            --accent-danger: #EF4444;
+            --text-primary: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --text-tertiary: #6B7280;
+            --text-muted: #4B5563;
+            --gradient-hero: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+            --gradient-deal: linear-gradient(90deg, #10B981 0%, #059669 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--bg-tertiary);
+            z-index: 1000;
+            padding: 0 24px;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero {
+            margin-top: 70px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .subheadline {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .btn-primary {
+            padding: 14px 28px;
+            background: var(--gradient-hero);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 80px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .news-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .news-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .news-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--bg-tertiary);
+            padding: 60px 24px 24px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">◆ GamePulse Hub</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Daily Pulse on Gaming</h1>
+            <p class="subheadline">Breaking news, honest reviews, and deals that actually save you money. The gamer-first media platform that respects your time and your wallet.</p>
+            <button class="btn-primary">Join 50,000+ Gamers →</button>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Latest Gaming News</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <h3>Valve Confirms Half-Life 3 Development</h3>
+                <p>After 17 years of memes and speculation, Valve has officially announced Half-Life 3 is in active development.</p>
+            </div>
+            <div class="news-card">
+                <h3>PlayStation 6 Leak Reveals Backward Compatibility Plans</h3>
+                <p>Internal Sony documents suggest the PS6 will play every PlayStation generation natively.</p>
+            </div>
+            <div class="news-card">
+                <h3>Xbox Game Pass Loses Major Titles: What's Leaving in March</h3>
+                <p>Microsoft confirms 12 games are rotating out of Game Pass next month, including Starfield.</p>
+            </div>
+            <div class="news-card">
+                <h3>Nintendo Switch 2 Direct: Everything Announced</h3>
+                <p>The 45-minute presentation revealed launch titles, pricing, and a surprise Mario Kart World bundle.</p>
+            </div>
+            <div class="news-card">
+                <h3>Mobile Esports Prize Pool Hits $50M in 2024</h3>
+                <p>Competitive mobile gaming is no longer the little sibling of PC esports.</p>
+            </div>
+            <div class="news-card">
+                <h3>RTX 5090 Review: The 4K Gaming King</h3>
+                <p>We test the $1,999 GPU across 15 demanding titles. Performance gains are real.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GamePulse Hub. Your daily source for gaming news, reviews, and deals.</p>
+        <p style="margin-top: 12px; font-size: 14px;">Built with ❤️ for gamers worldwide</p>
+    </footer>
+</body>
+</html>
