@@ -71,6 +71,156 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "◆";
+            font-size: 20px;
+            -webkit-text-fill-color: var(--accent-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-hero);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 24px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .kicker {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-primary);
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
         }
 
         h1 {
@@ -79,58 +229,296 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
-        }
-
-        .hero {
-            margin-top: 70px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding: 0 24px;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
+            letter-spacing: -0.02em;
         }
 
         .subheadline {
             font-size: 20px;
             color: var(--text-secondary);
             margin-bottom: 32px;
+            line-height: 1.6;
         }
 
-        .btn-primary {
-            padding: 14px 28px;
-            background: var(--gradient-hero);
-            color: white;
-            border: none;
+        .cta-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .cta-group input {
+            flex: 1;
+            padding: 14px 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
             border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .cta-group input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .cta-group input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .microcopy {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .hero-stats div {
+            text-align: center;
+        }
+
+        .hero-stats strong {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .hero-stats span {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card {
+            width: 300px;
+            height: 380px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 16px;
+            padding: 20px;
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-card:nth-child(1) {
+            transform: rotate(-5deg) translateX(-50px);
+            z-index: 1;
+            animation-delay: 0s;
+        }
+
+        .hero-card:nth-child(2) {
+            transform: rotate(5deg) translateX(50px) translateY(30px);
+            z-index: 2;
+            background: var(--bg-tertiary);
+            animation-delay: 1s;
+        }
+
+        .hero-card:nth-child(3) {
+            transform: rotate(-3deg) translateY(60px);
+            z-index: 3;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
+            50% { transform: translateY(-20px) rotate(var(--rotation, 0deg)); }
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
             font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s;
+            margin-bottom: 8px;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-tertiary);
         }
 
+        /* Ticker */
+        .ticker {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--bg-tertiary);
+            border-bottom: 1px solid var(--bg-tertiary);
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: flex;
+            gap: 40px;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .ticker-item::before {
+            content: "🔥";
+        }
+
+        .ticker-item strong {
+            color: var(--text-primary);
+        }
+
+        /* Section Styles */
         .section {
             padding: 80px 24px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
         h2 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 32px;
             font-weight: 700;
-            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
+        .section-link {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s;
+        }
+
+        .section-link:hover {
+            gap: 8px;
+        }
+
+        /* Featured Story */
+        .featured-story {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 16px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            margin-bottom: 60px;
+        }
+
+        .featured-image {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--accent-primary);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: fit-content;
+            margin-bottom: 16px;
+        }
+
+        .featured-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .featured-content p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .read-more {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* News Grid */
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
@@ -138,81 +526,1211 @@
             background: var(--bg-secondary);
             border: 1px solid var(--bg-tertiary);
             border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.3s;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
         .news-card:hover {
             transform: translateY(-4px);
+            border-color: var(--bg-elevated);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .news-card h3 {
+        .news-image {
+            height: 180px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-ps { background: #0070D1; color: white; }
+        .badge-xbox { background: #107C10; color: white; }
+        .badge-nintendo { background: #E60012; color: white; }
+        .badge-pc { background: #9CA3AF; color: black; }
+        .badge-mobile { background: #F59E0B; color: black; }
+        .badge-esports { background: var(--accent-primary); color: white; }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .news-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--bg-tertiary);
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+        }
+
+        .review-header {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .review-cover {
+            width: 80px;
+            height: 100px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .review-info {
+            flex: 1;
+        }
+
+        .review-info h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .platform-icons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .platform-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .review-score {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .verdict {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .pros-cons {
+            font-size: 13px;
+        }
+
+        .pros-cons li {
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+            list-style: none;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .pros-cons li::before {
+            content: "+";
+            position: absolute;
+            left: 0;
+            color: var(--accent-success);
+            font-weight: 700;
+        }
+
+        .pros-cons li:nth-child(n+3)::before {
+            content: "−";
+            color: var(--accent-danger);
+        }
+
+        /* Deals Section */
+        .deals-section {
+            position: relative;
+        }
+
+        .deals-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-deal);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .countdown-banner {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .countdown-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .countdown-timer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-success);
+        }
+
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .deal-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .deal-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gradient-deal);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            z-index: 2;
+            animation: pulse-deal 2s infinite;
+        }
+
+        @keyframes pulse-deal {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .deal-image {
+            height: 160px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .deal-content {
+            padding: 16px;
+        }
+
+        .store-logo {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .deal-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .pricing {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
             margin-bottom: 12px;
         }
 
-        .news-card p {
+        .price-original {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            text-decoration: line-through;
+        }
+
+        .price-sale {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-success);
+        }
+
+        .savings {
+            font-size: 12px;
+            color: var(--accent-success);
+            font-weight: 600;
+        }
+
+        .btn-deal {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg-tertiary);
+            border: none;
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-deal:hover {
+            background: var(--accent-success);
+            color: white;
+        }
+
+        /* Events Section */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .event-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .event-card:hover {
+            border-color: var(--accent-secondary);
+            transform: translateY(-4px);
+        }
+
+        .event-date {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .date-badge {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .date-month {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-secondary);
+        }
+
+        .date-day {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .event-type {
+            padding: 4px 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            height: fit-content;
+        }
+
+        .event-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .event-card p {
+            font-size: 14px;
             color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .event-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-danger);
+            font-weight: 600;
+        }
+
+        .live-indicator::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-danger);
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--gradient-hero);
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-content h2 {
+            color: white;
+            margin-bottom: 16px;
+            justify-content: center;
+        }
+
+        .newsletter-content > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 16px 32px;
+            background: var(--bg-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.05);
+        }
+
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.9);
             font-size: 14px;
         }
 
-        footer {
+        /* Footer */
+        .footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--bg-tertiary);
             padding: 60px 24px 24px;
-            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+            display: inline-flex;
+        }
+
+        .footer-brand p {
             color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-column h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-secondary);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid var(--bg-tertiary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .news-grid, .reviews-grid, .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .deals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-story {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                gap: 24px;
+            }
+
+            .news-grid, .reviews-grid, .events-grid, .deals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .countdown-banner {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .benefits {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <a href="/" class="logo">◆ GamePulse Hub</a>
+            <a href="#" class="logo">GamePulse Hub</a>
+            <ul class="nav-links">
+                <li><a href="#news">News</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#guides">Guides</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-secondary">Search</button>
+                <button class="btn btn-primary">Subscribe</button>
+            </div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Your Daily Pulse on Gaming</h1>
-            <p class="subheadline">Breaking news, honest reviews, and deals that actually save you money. The gamer-first media platform that respects your time and your wallet.</p>
-            <button class="btn-primary">Join 50,000+ Gamers →</button>
+            <div class="hero-text">
+                <span class="kicker">WELCOME TO GAMEPULSE</span>
+                <h1>Your Daily Pulse on Gaming</h1>
+                <p class="subheadline">Breaking news, honest reviews, and deals that actually save you money. The gamer-first media platform that respects your time.</p>
+                <div class="cta-group">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="btn btn-primary">Join 50,000+ Gamers →</button>
+                </div>
+                <p class="microcopy">No spam. Unsubscribe anytime. Join the community.</p>
+                <div class="hero-stats">
+                    <div>
+                        <strong>2M+</strong>
+                        <span>Monthly Readers</span>
+                    </div>
+                    <div>
+                        <strong>500+</strong>
+                        <span>Reviews</span>
+                    </div>
+                    <div>
+                        <strong>Daily</strong>
+                        <span>Deal Updates</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card" style="--rotation: -5deg;">
+                    <div class="card-image">🎮</div>
+                    <div class="card-title">Latest Reviews</div>
+                    <div class="card-meta">Avowed scores 8.5/10</div>
+                </div>
+                <div class="hero-card" style="--rotation: 5deg;">
+                    <div class="card-image">💰</div>
+                    <div class="card-title">Hot Deals</div>
+                    <div class="card-meta">Steam Deck $100 off</div>
+                </div>
+                <div class="hero-card" style="--rotation: -3deg;">
+                    <div class="card-image">📰</div>
+                    <div class="card-title">Breaking News</div>
+                    <div class="card-meta">Half-Life 3 confirmed</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2>Latest Gaming News</h2>
+    <!-- Ticker -->
+    <div class="ticker">
+        <div class="ticker-content">
+            <div class="ticker-item"><strong>Half-Life 3</strong> Confirmed After 17 Years</div>
+            <div class="ticker-item"><strong>Switch 2</strong> Direct Recap: Everything Announced</div>
+            <div class="ticker-item"><strong>Steam Deck</strong> OLED $100 Off Ends Tonight</div>
+            <div class="ticker-item"><strong>Avowed</strong> Review: Obsidian's Safe Bet Pays Off</div>
+            <div class="ticker-item"><strong>Capcom Cup</strong> Finals This Weekend</div>
+            <div class="ticker-item"><strong>RTX 5090</strong> Review: The 4K King at What Cost?</div>
+            <div class="ticker-item"><strong>GTA 6</strong> Trailer 2 Drops at The Game Awards</div>
+            <div class="ticker-item"><strong>Mobile Esports</strong> Hits $50M Prize Pools</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="ticker-item"><strong>Half-Life 3</strong> Confirmed After 17 Years</div>
+            <div class="ticker-item"><strong>Switch 2</strong> Direct Recap: Everything Announced</div>
+            <div class="ticker-item"><strong>Steam Deck</strong> OLED $100 Off Ends Tonight</div>
+            <div class="ticker-item"><strong>Avowed</strong> Review: Obsidian's Safe Bet Pays Off</div>
+            <div class="ticker-item"><strong>Capcom Cup</strong> Finals This Weekend</div>
+            <div class="ticker-item"><strong>RTX 5090</strong> Review: The 4K King at What Cost?</div>
+            <div class="ticker-item"><strong>GTA 6</strong> Trailer 2 Drops at The Game Awards</div>
+            <div class="ticker-item"><strong>Mobile Esports</strong> Hits $50M Prize Pools</div>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <section class="section" id="news">
+        <div class="featured-story">
+            <div class="featured-image">🔥</div>
+            <div class="featured-content">
+                <span class="tag">Exclusive</span>
+                <h3>Inside Valve's Half-Life 3 Development: Sources Say 2026 Target</h3>
+                <p>After 17 years of memes and speculation, we spoke to three former developers about the project that's become gaming's most famous vaporware. What changed? Why now? And will it live up to the legend?</p>
+                <a href="#" class="read-more">Read Exclusive →</a>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Latest News</h2>
+            <a href="#" class="section-link">View All News →</a>
+        </div>
+
         <div class="news-grid">
-            <div class="news-card">
-                <h3>Valve Confirms Half-Life 3 Development</h3>
-                <p>After 17 years of memes and speculation, Valve has officially announced Half-Life 3 is in active development.</p>
+            <article class="news-card">
+                <div class="news-image">
+                    <span class="platform-badge badge-ps">PlayStation</span>
+                    🎮
+                </div>
+                <div class="news-content">
+                    <h4>PlayStation 6 Leak: Full Backward Compatibility Confirmed</h4>
+                    <p>Internal docs suggest PS6 plays every generation natively. Here's what this means for your library.</p>
+                    <div class="news-meta">
+                        <span>By Alex Chen</span>
+                        <span>2 hours ago</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span class="platform-badge badge-xbox">Xbox</span>
+                    🎯
+                </div>
+                <div class="news-content">
+                    <h4>Xbox Game Pass March Exits: 12 Games Leaving</h4>
+                    <p>Starfield and Hi-Fi Rush rotate out next month. What to play before they're gone.</p>
+                    <div class="news-meta">
+                        <span>By Sarah Miller</span>
+                        <span>4 hours ago</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span class="platform-badge badge-nintendo">Nintendo</span>
+                    🍄
+                </div>
+                <div class="news-content">
+                    <h4>Nintendo Switch 2: Full Direct Breakdown</h4>
+                    <p>$449 price point, Mario Kart World bundle, and launch lineup analyzed.</p>
+                    <div class="news-meta">
+                        <span>By Mike Johnson</span>
+                        <span>6 hours ago</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span class="platform-badge badge-mobile">Mobile</span>
+                    📱
+                </div>
+                <div class="news-content">
+                    <h4>Mobile Esports Hits $50M Prize Pools in 2024</h4>
+                    <p>Competitive mobile gaming triples its prizes. Honor of Kings leads the charge.</p>
+                    <div class="news-meta">
+                        <span>By Lisa Wong</span>
+                        <span>8 hours ago</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span class="platform-badge badge-pc">PC</span>
+                    🖥️
+                </div>
+                <div class="news-content">
+                    <h4>RTX 5090 Review: The 4K King at What Cost?</h4>
+                    <p>We test the $1,999 GPU. Performance gains are real—if your PSU can handle 575W.</p>
+                    <div class="news-meta">
+                        <span>By Tom Bradley</span>
+                        <span>10 hours ago</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <span class="platform-badge badge-esports">Esports</span>
+                    🏆
+                </div>
+                <div class="news-content">
+                    <h4>Street Fighter 6: New Balance Patch Shakes Up Meta</h4>
+                    <p>Top tiers nerfed, underdogs buffed. Pro players react to the changes.</p>
+                    <div class="news-meta">
+                        <span>By Chris Park</span>
+                        <span>12 hours ago</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section reviews-section" id="reviews">
+        <div class="section-header">
+            <h2>Featured Reviews</h2>
+            <a href="#" class="section-link">All Reviews →</a>
+        </div>
+
+        <div class="reviews-grid">
+            <article class="review-card">
+                <div class="review-header">
+                    <div class="review-cover">⚔️</div>
+                    <div class="review-info">
+                        <h4>Avowed</h4>
+                        <div class="platform-icons">
+                            <span class="platform-icon">PC</span>
+                            <span class="platform-icon">XB</span>
+                        </div>
+                        <div class="review-score">8.5</div>
+                    </div>
+                </div>
+                <p class="verdict">Obsidian's fantasy RPG delivers tight combat and meaningful choices. A must-play for Pillars fans.</p>
+                <ul class="pros-cons">
+                    <li>Combat has real weight and impact</li>
+                    <li>Meaningful dialogue choices</li>
+                    <li>Story plays it safe with tropes</li>
+                </ul>
+            </article>
+
+            <article class="review-card">
+                <div class="review-header">
+                    <div class="review-cover">🎴</div>
+                    <div class="review-info">
+                        <h4>RTX 5090</h4>
+                        <div class="platform-icons">
+                            <span class="platform-icon">HW</span>
+                        </div>
+                        <div class="review-score">9.2</div>
+                    </div>
+                </div>
+                <p class="verdict">The 4K gaming king arrives. Performance justifies the price—if you need the best.</p>
+                <ul class="pros-cons">
+                    <li>Unmatched 4K performance</li>
+                    <li>DLSS 4 is revolutionary</li>
+                    <li>575W power draw demands PSU upgrade</li>
+                </ul>
+            </article>
+
+            <article class="review-card">
+                <div class="review-header">
+                    <div class="review-cover">🏰</div>
+                    <div class="review-info">
+                        <h4>Blue Prince</h4>
+                        <div class="platform-icons">
+                            <span class="platform-icon">PC</span>
+                            <span class="platform-icon">PS</span>
+                        </div>
+                        <div class="review-score">9.0</div>
+                    </div>
+                </div>
+                <p class="verdict">2024's sleeper hit. This roguelike mansion puzzler creates "just one more room" addiction.</p>
+                <ul class="pros-cons">
+                    <li>Ingenious roguelike mechanics</li>
+                    <li>Perfect puzzle difficulty curve</li>
+                    <li>Short total runtime (15-20 hrs)</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="section deals-section" id="deals">
+        <div class="countdown-banner">
+            <span class="countdown-label">⏰ Deals refresh in:</span>
+            <span class="countdown-timer">04:23:15</span>
+        </div>
+
+        <div class="section-header">
+            <h2>🔥 Hot Deals</h2>
+            <a href="#" class="section-link">View All Deals →</a>
+        </div>
+
+        <div class="deals-grid">
+            <div class="deal-card">
+                <span class="deal-badge">Save $100</span>
+                <div class="deal-image">🎮</div>
+                <div class="deal-content">
+                    <div class="store-logo">Steam / Amazon</div>
+                    <h4>Steam Deck OLED 512GB</h4>
+                    <div class="pricing">
+                        <span class="price-original">$549</span>
+                        <span class="price-sale">$449</span>
+                    </div>
+                    <span class="savings">Ends in 14 hours</span>
+                    <button class="btn-deal">Get Deal →</button>
+                </div>
             </div>
-            <div class="news-card">
-                <h3>PlayStation 6 Leak Reveals Backward Compatibility Plans</h3>
-                <p>Internal Sony documents suggest the PS6 will play every PlayStation generation natively.</p>
+
+            <div class="deal-card">
+                <span class="deal-badge">-35%</span>
+                <div class="deal-image">🐉</div>
+                <div class="deal-content">
+                    <div class="store-logo">Steam</div>
+                    <h4>Baldur's Gate 3 (PC)</h4>
+                    <div class="pricing">
+                        <span class="price-original">$59.99</span>
+                        <span class="price-sale">$38.99</span>
+                    </div>
+                    <span class="savings">Lowest ever</span>
+                    <button class="btn-deal">Get Deal →</button>
+                </div>
             </div>
-            <div class="news-card">
-                <h3>Xbox Game Pass Loses Major Titles: What's Leaving in March</h3>
-                <p>Microsoft confirms 12 games are rotating out of Game Pass next month, including Starfield.</p>
+
+            <div class="deal-card">
+                <span class="deal-badge">-33%</span>
+                <div class="deal-image">🎮</div>
+                <div class="deal-content">
+                    <div class="store-logo">Microsoft</div>
+                    <h4>Xbox Game Pass Ultimate (3mo)</h4>
+                    <div class="pricing">
+                        <span class="price-original">$44.99</span>
+                        <span class="price-sale">$29.99</span>
+                    </div>
+                    <span class="savings">New subs only</span>
+                    <button class="btn-deal">Get Deal →</button>
+                </div>
             </div>
-            <div class="news-card">
-                <h3>Nintendo Switch 2 Direct: Everything Announced</h3>
-                <p>The 45-minute presentation revealed launch titles, pricing, and a surprise Mario Kart World bundle.</p>
-            </div>
-            <div class="news-card">
-                <h3>Mobile Esports Prize Pool Hits $50M in 2024</h3>
-                <p>Competitive mobile gaming is no longer the little sibling of PC esports.</p>
-            </div>
-            <div class="news-card">
-                <h3>RTX 5090 Review: The 4K Gaming King</h3>
-                <p>We test the $1,999 GPU across 15 demanding titles. Performance gains are real.</p>
+
+            <div class="deal-card">
+                <span class="deal-badge">-34%</span>
+                <div class="deal-image">🎧</div>
+                <div class="deal-content">
+                    <div class="store-logo">Amazon</div>
+                    <h4>Sony INZONE H9 Headset</h4>
+                    <div class="pricing">
+                        <span class="price-original">$299.99</span>
+                        <span class="price-sale">$198.00</span>
+                    </div>
+                    <span class="savings">23 left in stock</span>
+                    <button class="btn-deal">Get Deal →</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 GamePulse Hub. Your daily source for gaming news, reviews, and deals.</p>
-        <p style="margin-top: 12px; font-size: 14px;">Built with ❤️ for gamers worldwide</p>
+    <!-- Events Section -->
+    <section class="section" id="events">
+        <div class="section-header">
+            <h2>Upcoming Events</h2>
+            <a href="#" class="section-link">Full Calendar →</a>
+        </div>
+
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="date-badge">
+                        <span class="date-month">DEC</span>
+                        <span class="date-day">12</span>
+                    </div>
+                    <span class="event-type">Awards</span>
+                </div>
+                <h4>The Game Awards 2024</h4>
+                <p>50+ world premieres. Will GTA 6 show gameplay? Live coverage starts 4 PM PT.</p>
+                <div class="event-meta">
+                    <span>Los Angeles / Online</span>
+                    <span class="live-indicator">LIVE</span>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="date-badge">
+                        <span class="date-month">FEB</span>
+                        <span class="date-day">21</span>
+                    </div>
+                    <span class="event-type">Tournament</span>
+                </div>
+                <h4>Capcom Cup 11</h4>
+                <p>Street Fighter 6's biggest tournament hits Vegas with $1M on the line.</p>
+                <div class="event-meta">
+                    <span>Las Vegas</span>
+                    <span>Starts in 45 days</span>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="date-badge">
+                        <span class="date-month">MAR</span>
+                        <span class="date-day">17</span>
+                    </div>
+                    <span class="event-type">Conference</span>
+                </div>
+                <h4>GDC 2025</h4>
+                <p>Game Developers Conference returns. Expect engine reveals and indie showcases.</p>
+                <div class="event-meta">
+                    <span>San Francisco</span>
+                    <span>Starts in 68 days</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Never Miss a Drop</h2>
+            <p>Get the week's biggest stories, honest reviews, and hand-picked deals delivered every Friday.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Join Free →</button>
+            </form>
+            <div class="benefits">
+                <div class="benefit">✓ Exclusive deal alerts 24h early</div>
+                <div class="benefit">✓ Early access to livestreams</div>
+                <div class="benefit">✓ Giveaway entries for subscribers</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">GamePulse Hub</a>
+                <p>Your daily source for gaming news, reviews, and deals that matter. Independent, gamer-first media since 2024.</p>
+            </div>
+            <div class="footer-column">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Sections</h5>
+                <ul>
+                    <li><a href="#">PC Gaming</a></li>
+                    <li><a href="#">PlayStation</a></li>
+                    <li><a href="#">Xbox</a></li>
+                    <li><a href="#">Nintendo</a></li>
+                    <li><a href="#">Esports</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="#">Twitter/X</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitch</a></li>
+                    <li><a href="#">RSS Feed</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 GamePulse Hub. All rights reserved.</p>
+            <p>Made with ♥ for gamers worldwide</p>
+        </div>
     </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const midnight = new Date(now);
+            midnight.setHours(24, 0, 0, 0);
+            const diff = midnight - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.querySelector('.countdown-timer').textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(10, 10, 15, 0.98)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Card hover effects enhancement
+        document.querySelectorAll('.news-card, .review-card, .deal-card, .event-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
